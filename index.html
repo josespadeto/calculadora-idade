@@ -2,33 +2,104 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Calculadora de Idade Online Grátis</title>
+<title>Calculadora de Idade Online Grátis (2026)</title>
 <meta name="description" content="Descubra sua idade exata em anos de forma rápida e gratuita.">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 300px;
+}
+
+nav {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 5px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+input, button {
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #333;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+#res {
+  margin-top: 15px;
+  font-weight: bold;
+}
+</style>
+
 </head>
 <body>
 
+<div class="container">
+
 <nav>
-<a href="idade.html">Idade</a> |
-<a href="dias-vida.html">Dias de Vida</a> |
+<a href="index.html">Idade</a> |
+<a href="dias-vida.html">Dias</a> |
 <a href="imc.html">IMC</a> |
 <a href="calorias.html">Calorias</a> |
-<a href="idade-biologica.html">Idade Biológica</a>
+<a href="idade-biologica.html">Bio</a>
 </nav>
-<hr>
 
 <h1>Calculadora de Idade</h1>
 
 <input type="date" id="data">
 <button onclick="calc()">Calcular</button>
 
-<h2 id="res"></h2>
+<div id="res"></div>
+
+</div>
 
 <script>
 function calc(){
 let d=new Date(document.getElementById("data").value);
 let h=new Date();
+
 let idade=h.getFullYear()-d.getFullYear();
-if(h.getMonth()<d.getMonth()||(h.getMonth()==d.getMonth()&&h.getDate()<d.getDate())) idade--;
+let m=h.getMonth()-d.getMonth();
+
+if(m<0 || (m===0 && h.getDate()<d.getDate())) idade--;
+
 document.getElementById("res").innerText="Você tem "+idade+" anos";
 }
 </script>
