@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora de Idade Online Grátis</title>
+<meta name="description" content="Descubra sua idade exata em anos de forma rápida e gratuita.">
+</head>
+<body>
+
+<nav>
+<a href="idade.html">Idade</a> |
+<a href="dias-vida.html">Dias de Vida</a> |
+<a href="imc.html">IMC</a> |
+<a href="calorias.html">Calorias</a> |
+<a href="idade-biologica.html">Idade Biológica</a>
+</nav>
+<hr>
+
+<h1>Calculadora de Idade</h1>
+
+<input type="date" id="data">
+<button onclick="calc()">Calcular</button>
+
+<h2 id="res"></h2>
+
+<script>
+function calc(){
+let d=new Date(document.getElementById("data").value);
+let h=new Date();
+let idade=h.getFullYear()-d.getFullYear();
+if(h.getMonth()<d.getMonth()||(h.getMonth()==d.getMonth()&&h.getDate()<d.getDate())) idade--;
+document.getElementById("res").innerText="Você tem "+idade+" anos";
+}
+</script>
+
+</body>
+</html>
