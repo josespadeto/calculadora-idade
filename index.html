@@ -3,41 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Idade Pro - Global</title>
+    <title>BioCronos - Health Tools</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="language-selector">
-        <button onclick="setLanguage('pt')">PT</button>
-        <button onclick="setLanguage('en')">EN</button>
-        <button onclick="setLanguage('es')">ES</button>
-    </div>
+    <nav class="main-nav">
+        <button onclick="showTool('age')" id="nav-age">Idade</button>
+        <button onclick="showTool('imc')" id="nav-imc">IMC</button>
+        <div class="lang-buttons">
+            <button onclick="setLanguage('pt')">PT</button>
+            <button onclick="setLanguage('en')">EN</button>
+            <button onclick="setLanguage('es')">ES</button>
+        </div>
+    </nav>
 
     <div class="container">
-        <h1 id="txt-title">Calculadora de Idade</h1>
-        
-        <div class="input-group">
-            <label for="birthdate" id="txt-label">Data de Nascimento:</label>
-            <input type="date" id="birthdate">
-        </div>
-
-        <button onclick="calculateAge()" id="txt-btn">Calcular Idade</button>
-
-        <div id="result" class="result-container">
+        <section id="tool-age">
+            <h1 id="txt-title">Calculadora de Idade</h1>
+            <div class="input-group">
+                <label for="birthdate" id="txt-label">Data de Nascimento:</label>
+                <input type="date" id="birthdate">
             </div>
+            <button onclick="calculateAge()" id="txt-btn">Calcular Idade</button>
+        </section>
 
-        <div id="affiliate-area" style="display: none; margin-top: 25px; padding: 15px; border-top: 1px solid #eee;">
-            <p id="aff-text" style="font-size: 0.85rem; color: #666; margin-bottom: 8px;"></p>
-            <a id="aff-link" href="#" target="_blank" style="color: #007bff; font-weight: bold; text-decoration: none; font-size: 0.95rem;"></a>
+        <section id="tool-imc" style="display:none;">
+            <h1 id="txt-title-imc">Calculadora de IMC</h1>
+            <div class="input-group">
+                <label id="lbl-weight">Peso (kg):</label>
+                <input type="number" id="weight" placeholder="Ex: 70">
+            </div>
+            <div class="input-group">
+                <label id="lbl-height">Altura (m):</label>
+                <input type="number" id="height" step="0.01" placeholder="Ex: 1.75">
+            </div>
+            <button onclick="calculateIMC()" id="txt-btn-imc">Calcular IMC</button>
+        </section>
+
+        <div id="result" class="result-container"></div>
+
+        <div id="affiliate-area" style="display: none;">
+            <p id="aff-text"></p>
+            <a id="aff-link" href="#" target="_blank"></a>
         </div>
 
-        <div class="ad-box" style="margin-top: 30px; min-height: 90px; background: #fdfdfd; border: 1px dashed #ddd; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #bbb; text-transform: uppercase;">
-            Publicidade
-        </div>
+        <div class="ad-box">Publicidade</div>
 
-        <footer style="margin-top: 25px;">
-            <a href="#" id="txt-privacy" style="font-size: 0.75rem; color: #aaa; text-decoration: none;">Privacidade</a>
+        <footer>
+            <a href="#" id="txt-privacy">Privacidade</a>
         </footer>
     </div>
 
