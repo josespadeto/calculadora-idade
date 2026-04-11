@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioCronos - Ferramentas de Saúde</title>
+    <title>BioCronos - Health Suite</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +12,6 @@
         <div class="nav-links">
             <button onclick="showTool('age')" id="nav-age">Idade</button>
             <button onclick="showTool('imc')" id="nav-imc">IMC</button>
-            <button onclick="showTool('cal')" id="nav-cal">Calorias</button>
             <button onclick="showTool('bio')" id="nav-bio">Bio</button>
         </div>
         <div class="lang-buttons">
@@ -45,6 +44,18 @@
             <button onclick="calculateIMC()" class="btn-main" id="txt-btn-imc">Calcular IMC</button>
         </section>
 
+        <section id="tool-bio" class="tool-section" style="display:none;">
+            <h1 id="txt-title-bio">Idade Biológica</h1>
+            <div class="input-group">
+                <label id="lbl-habits">Você fuma ou é sedentário?</label>
+                <select id="habit-score">
+                    <option value="0">Não (Ativo/Saudável)</option>
+                    <option value="5">Sim (Sedentário/Fumante)</option>
+                </select>
+            </div>
+            <button onclick="calculateBio()" class="btn-main" id="txt-btn-bio">Analisar Bio</button>
+        </section>
+
         <div id="result" class="result-container"></div>
 
         <div id="affiliate-area" class="affiliate-box" style="display: none;">
@@ -52,7 +63,7 @@
             <a id="aff-link" href="#" target="_blank"></a>
         </div>
 
-        <div class="ad-placeholder">Espaço para Publicidade</div>
+        <div class="ad-placeholder">Publicidade</div>
 
         <footer>
             <a href="#" id="txt-privacy">Privacidade</a>
