@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioCronos Health - Global</title>
+    <title>BioCronos Health - Suite</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -46,7 +46,7 @@
         </section>
 
         <section id="tool-cal" class="tool-section" style="display:none;">
-            <h1 id="txt-title-cal">Gasto Calórico (TMB)</h1>
+            <h1 id="txt-title-cal">Gasto Calórico</h1>
             <div class="input-group">
                 <label id="lbl-gender">Gênero:</label>
                 <select id="gender-cal">
@@ -60,7 +60,7 @@
             </div>
             <div class="input-group">
                 <label id="lbl-age-cal">Idade Atual:</label>
-                <input type="number" id="age-cal" placeholder="65">
+                <input type="number" id="age-cal" placeholder="Ex: 65">
             </div>
             <button onclick="calculateCal()" class="btn-main" id="btn-cal">Calcular</button>
         </section>
@@ -68,19 +68,23 @@
         <section id="tool-bio" class="tool-section" style="display:none;">
             <h1 id="txt-title-bio">Idade Biológica</h1>
             <div class="input-group">
+                <label id="lbl-age-bio">Sua Idade Atual:</label>
+                <input type="number" id="age-bio" placeholder="Ex: 65">
+            </div>
+            <div class="input-group">
                 <label id="lbl-ex">Exercício:</label>
                 <select id="bio-ex">
-                    <option value="-2">Diário</option>
-                    <option value="0">Regular</option>
-                    <option value="3">Sedentário</option>
+                    <option value="-2">Diário (Atleta)</option>
+                    <option value="0">Regular (3x semana)</option>
+                    <option value="4">Sedentário</option>
                 </select>
             </div>
             <div class="input-group">
                 <label id="lbl-diet">Dieta:</label>
                 <select id="bio-diet">
-                    <option value="-1">Saudável</option>
-                    <option value="2">Média</option>
-                    <option value="4">Processados</option>
+                    <option value="-2">Saudável (Vegetais/Proteínas)</option>
+                    <option value="1">Média (Equilibrada)</option>
+                    <option value="5">Pobre (Ultraprocessados)</option>
                 </select>
             </div>
             <button onclick="calculateBio()" class="btn-main" id="btn-bio">Analisar</button>
