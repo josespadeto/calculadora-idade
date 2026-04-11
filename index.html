@@ -1,52 +1,100 @@
-<section id="tool-cal" class="tool-section" style="display:none;">
-    <h1 id="txt-title-cal">Gasto Calórico Diário</h1>
-    <div class="input-group">
-        <label id="lbl-gender">Gênero:</label>
-        <select id="gender-cal">
-            <option value="male">Masculino</option>
-            <option value="female">Feminino</option>
-        </select>
-    </div>
-    <div class="input-group">
-        <label id="lbl-weight-cal">Peso (kg):</label>
-        <input type="number" id="weight-cal" placeholder="Ex: 70">
-    </div>
-    <div class="input-group">
-        <label id="lbl-height-cal">Altura (cm):</label>
-        <input type="number" id="height-cal" placeholder="Ex: 175">
-    </div>
-    <div class="input-group">
-        <label id="lbl-age-cal">Idade Cronológica:</label>
-        <input type="number" id="age-cal" placeholder="Ex: 65">
-    </div>
-    <button onclick="calculateCal()" class="btn-main" id="btn-cal">Calcular</button>
-</section>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCronos Health - Global</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<section id="tool-bio" class="tool-section" style="display:none;">
-    <h1 id="txt-title-bio">Análise de Idade Biológica</h1>
-    <div class="input-group">
-        <label>Atividade Física:</label>
-        <select id="bio-exercise">
-            <option value="-3">Atleta / Diário</option>
-            <option value="-1">Moderado (3x semana)</option>
-            <option value="2">Leve (Caminhadas)</option>
-            <option value="5">Sedentário total</option>
-        </select>
+    <nav class="main-nav">
+        <div class="nav-links">
+            <button onclick="showTool('age')" id="nav-age">Idade</button>
+            <button onclick="showTool('imc')" id="nav-imc">IMC</button>
+            <button onclick="showTool('cal')" id="nav-cal">Calorias</button>
+            <button onclick="showTool('bio')" id="nav-bio">Bio</button>
+        </div>
+        <div class="lang-buttons">
+            <button onclick="setLanguage('pt')">PT</button>
+            <button onclick="setLanguage('en')">EN</button>
+            <button onclick="setLanguage('es')">ES</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="tool-age" class="tool-section">
+            <h1 id="txt-title-age">Calculadora de Idade</h1>
+            <div class="input-group">
+                <label id="lbl-birth">Data de Nascimento:</label>
+                <input type="date" id="birthdate">
+            </div>
+            <button onclick="calculateAge()" class="btn-main" id="btn-age">Calcular</button>
+        </section>
+
+        <section id="tool-imc" class="tool-section" style="display:none;">
+            <h1 id="txt-title-imc">Calculadora de IMC</h1>
+            <div class="input-group">
+                <label id="lbl-weight-imc">Peso (kg):</label>
+                <input type="number" id="weight-imc" placeholder="70">
+            </div>
+            <div class="input-group">
+                <label id="lbl-height-imc">Altura (m):</label>
+                <input type="number" id="height-imc" step="0.01" placeholder="1.75">
+            </div>
+            <button onclick="calculateIMC()" class="btn-main" id="btn-imc">Calcular</button>
+        </section>
+
+        <section id="tool-cal" class="tool-section" style="display:none;">
+            <h1 id="txt-title-cal">Gasto Calórico (TMB)</h1>
+            <div class="input-group">
+                <label id="lbl-gender">Gênero:</label>
+                <select id="gender-cal">
+                    <option value="male">Masculino</option>
+                    <option value="female">Feminino</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label id="lbl-weight-cal">Peso (kg):</label>
+                <input type="number" id="weight-cal" placeholder="70">
+            </div>
+            <div class="input-group">
+                <label id="lbl-age-cal">Idade Atual:</label>
+                <input type="number" id="age-cal" placeholder="65">
+            </div>
+            <button onclick="calculateCal()" class="btn-main" id="btn-cal">Calcular</button>
+        </section>
+
+        <section id="tool-bio" class="tool-section" style="display:none;">
+            <h1 id="txt-title-bio">Idade Biológica</h1>
+            <div class="input-group">
+                <label id="lbl-ex">Exercício:</label>
+                <select id="bio-ex">
+                    <option value="-2">Diário</option>
+                    <option value="0">Regular</option>
+                    <option value="3">Sedentário</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label id="lbl-diet">Dieta:</label>
+                <select id="bio-diet">
+                    <option value="-1">Saudável</option>
+                    <option value="2">Média</option>
+                    <option value="4">Processados</option>
+                </select>
+            </div>
+            <button onclick="calculateBio()" class="btn-main" id="btn-bio">Analisar</button>
+        </section>
+
+        <div id="result" class="result-container"></div>
+        <div id="affiliate-area" class="affiliate-box" style="display: none;">
+            <p id="aff-text"></p>
+            <a id="aff-link" href="#" target="_blank"></a>
+        </div>
+        <div class="ad-placeholder">Publicidade</div>
+        <footer><a href="#" id="txt-privacy">Privacidade</a></footer>
     </div>
-    <div class="input-group">
-        <label>Alimentação:</label>
-        <select id="bio-diet">
-            <option value="-2">Orgânica / Equilibrada</option>
-            <option value="0">Regular</option>
-            <option value="4">Processados / Açúcar</option>
-        </select>
-    </div>
-    <div class="input-group">
-        <label>Fumo:</label>
-        <select id="bio-smoke">
-            <option value="0">Não fumante</option>
-            <option value="8">Fumante ativo</option>
-        </select>
-    </div>
-    <button onclick="calculateBio()" class="btn-main" id="btn-bio">Analisar Bio-Idade</button>
-</section>
+
+    <script src="script.js"></script>
+</body>
+</html>
