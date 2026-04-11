@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioCronos - Health Tools</title>
+    <title>BioCronos - Ferramentas de Saúde</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav class="main-nav">
-        <button onclick="showTool('age')" id="nav-age">Idade</button>
-        <button onclick="showTool('imc')" id="nav-imc">IMC</button>
+        <div class="nav-links">
+            <button onclick="showTool('age')" id="nav-age">Idade</button>
+            <button onclick="showTool('imc')" id="nav-imc">IMC</button>
+            <button onclick="showTool('cal')" id="nav-cal">Calorias</button>
+            <button onclick="showTool('bio')" id="nav-bio">Bio</button>
+        </div>
         <div class="lang-buttons">
             <button onclick="setLanguage('pt')">PT</button>
             <button onclick="setLanguage('en')">EN</button>
@@ -19,36 +23,36 @@
     </nav>
 
     <div class="container">
-        <section id="tool-age">
+        <section id="tool-age" class="tool-section">
             <h1 id="txt-title">Calculadora de Idade</h1>
             <div class="input-group">
                 <label for="birthdate" id="txt-label">Data de Nascimento:</label>
                 <input type="date" id="birthdate">
             </div>
-            <button onclick="calculateAge()" id="txt-btn">Calcular Idade</button>
+            <button onclick="calculateAge()" class="btn-main" id="txt-btn">Calcular Idade</button>
         </section>
 
-        <section id="tool-imc" style="display:none;">
+        <section id="tool-imc" class="tool-section" style="display:none;">
             <h1 id="txt-title-imc">Calculadora de IMC</h1>
             <div class="input-group">
                 <label id="lbl-weight">Peso (kg):</label>
-                <input type="number" id="weight" placeholder="Ex: 70">
+                <input type="number" id="weight" placeholder="Ex: 75">
             </div>
             <div class="input-group">
                 <label id="lbl-height">Altura (m):</label>
                 <input type="number" id="height" step="0.01" placeholder="Ex: 1.75">
             </div>
-            <button onclick="calculateIMC()" id="txt-btn-imc">Calcular IMC</button>
+            <button onclick="calculateIMC()" class="btn-main" id="txt-btn-imc">Calcular IMC</button>
         </section>
 
         <div id="result" class="result-container"></div>
 
-        <div id="affiliate-area" style="display: none;">
+        <div id="affiliate-area" class="affiliate-box" style="display: none;">
             <p id="aff-text"></p>
             <a id="aff-link" href="#" target="_blank"></a>
         </div>
 
-        <div class="ad-box">Publicidade</div>
+        <div class="ad-placeholder">Espaço para Publicidade</div>
 
         <footer>
             <a href="#" id="txt-privacy">Privacidade</a>
