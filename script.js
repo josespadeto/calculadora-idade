@@ -7,7 +7,11 @@ const translations = {
         months: "meses",
         days: "dias",
         resultText: "Você tem",
-        error: "Por favor, insira uma data válida."
+        error: "Por favor, insira uma data válida.",
+        privacy: "Política de Privacidade",
+        affText: "Recomendação de Leitura:",
+        affLinkText: "Livros sobre Longevidade na Amazon",
+        affUrl: "https://www.amazon.com.br/s?k=longevidade&tag=SEU_TAG" 
     },
     en: {
         title: "Age Calculator",
@@ -17,7 +21,11 @@ const translations = {
         months: "months",
         days: "days",
         resultText: "You are",
-        error: "Please enter a valid date."
+        error: "Please enter a valid date.",
+        privacy: "Privacy Policy",
+        affText: "Recommended Reading:",
+        affLinkText: "Best Longevity Books on Amazon",
+        affUrl: "https://www.amazon.com/s?k=longevity&tag=YOUR_TAG"
     },
     es: {
         title: "Calculadora de Edad",
@@ -27,7 +35,11 @@ const translations = {
         months: "meses",
         days: "días",
         resultText: "Tienes",
-        error: "Por favor, introduce una fecha válida."
+        error: "Por favor, introduce una fecha válida.",
+        privacy: "Política de Privacidad",
+        affText: "Lectura Recomendada:",
+        affLinkText: "Libros sobre longevidad en Amazon",
+        affUrl: "https://www.amazon.es/s?k=longevidad&tag=TU_TAG"
     }
 };
 
@@ -38,15 +50,21 @@ function setLanguage(lang) {
     document.getElementById('txt-title').innerText = translations[lang].title;
     document.getElementById('txt-label').innerText = translations[lang].label;
     document.getElementById('txt-btn').innerText = translations[lang].btn;
-    document.getElementById('result').innerHTML = ""; // Limpa resultado ao trocar idioma
+    document.getElementById('txt-privacy').innerText = translations[lang].privacy;
+    
+    // Limpa resultados ao trocar idioma para manter a lógica limpa
+    document.getElementById('result').innerHTML = ""; 
+    document.getElementById('affiliate-area').style.display = "none";
 }
 
 function calculateAge() {
     const birthdateInput = document.getElementById('birthdate').value;
     const resultDiv = document.getElementById('result');
+    const affArea = document.getElementById('affiliate-area');
 
     if (!birthdateInput) {
         resultDiv.innerHTML = `<p style="color:red">${translations[currentLang].error}</p>`;
+        affArea.style.display = "none";
         return;
     }
 
@@ -69,4 +87,10 @@ function calculateAge() {
     const t = translations[currentLang];
     resultDiv.innerHTML = `<strong>${t.resultText}:</strong><br> 
     ${years} ${t.years}, ${months} ${t.months} e ${days} ${t.days}.`;
+
+    // EXIBIR RECOMENDAÇÃO DE AFILIADO
+    document.getElementById('aff-text').innerText = t.affText;
+    document.getElementById('aff-link').innerText = t.affLinkText;
+    document.getElementById('aff-link').href = t.affUrl;
+    affArea.style.display = "block";
 }
