@@ -12,6 +12,7 @@
         <div class="nav-links">
             <button onclick="showTool('age')" id="nav-age">Idade</button>
             <button onclick="showTool('imc')" id="nav-imc">IMC</button>
+            <button onclick="showTool('cal')" id="nav-cal">Calorias</button>
             <button onclick="showTool('bio')" id="nav-bio">Bio</button>
         </div>
         <div class="lang-buttons">
@@ -28,32 +29,45 @@
                 <label for="birthdate" id="txt-label">Data de Nascimento:</label>
                 <input type="date" id="birthdate">
             </div>
-            <button onclick="calculateAge()" class="btn-main" id="txt-btn">Calcular Idade</button>
+            <button onclick="calculateAge()" class="btn-main" id="btn-age">Calcular Idade</button>
         </section>
 
         <section id="tool-imc" class="tool-section" style="display:none;">
             <h1 id="txt-title-imc">Calculadora de IMC</h1>
             <div class="input-group">
-                <label id="lbl-weight">Peso (kg):</label>
-                <input type="number" id="weight" placeholder="Ex: 75">
+                <label id="lbl-weight-imc">Peso (kg):</label>
+                <input type="number" id="weight-imc" placeholder="Ex: 75">
             </div>
             <div class="input-group">
-                <label id="lbl-height">Altura (m):</label>
-                <input type="number" id="height" step="0.01" placeholder="Ex: 1.75">
+                <label id="lbl-height-imc">Altura (m):</label>
+                <input type="number" id="height-imc" step="0.01" placeholder="Ex: 1.75">
             </div>
-            <button onclick="calculateIMC()" class="btn-main" id="txt-btn-imc">Calcular IMC</button>
+            <button onclick="calculateIMC()" class="btn-main" id="btn-imc">Calcular IMC</button>
+        </section>
+
+        <section id="tool-cal" class="tool-section" style="display:none;">
+            <h1 id="txt-title-cal">Calculadora de Calorias</h1>
+            <div class="input-group">
+                <label id="lbl-weight-cal">Peso (kg):</label>
+                <input type="number" id="weight-cal" placeholder="Ex: 80">
+            </div>
+            <div class="input-group">
+                <label id="lbl-age-cal">Idade:</label>
+                <input type="number" id="age-cal" placeholder="Ex: 30">
+            </div>
+            <button onclick="calculateCal()" class="btn-main" id="btn-cal">Calcular TMB</button>
         </section>
 
         <section id="tool-bio" class="tool-section" style="display:none;">
             <h1 id="txt-title-bio">Idade Biológica</h1>
             <div class="input-group">
-                <label id="lbl-habits">Você fuma ou é sedentário?</label>
+                <label id="lbl-habits">Estilo de vida:</label>
                 <select id="habit-score">
-                    <option value="0">Não (Ativo/Saudável)</option>
-                    <option value="5">Sim (Sedentário/Fumante)</option>
+                    <option value="0">Ativo / Não Fumante</option>
+                    <option value="5">Sedentário / Fumante</option>
                 </select>
             </div>
-            <button onclick="calculateBio()" class="btn-main" id="txt-btn-bio">Analisar Bio</button>
+            <button onclick="calculateBio()" class="btn-main" id="btn-bio">Analisar</button>
         </section>
 
         <div id="result" class="result-container"></div>
@@ -63,7 +77,7 @@
             <a id="aff-link" href="#" target="_blank"></a>
         </div>
 
-        <div class="ad-placeholder">Publicidade</div>
+        <div class="ad-placeholder">Publicidade (AdSense Space)</div>
 
         <footer>
             <a href="#" id="txt-privacy">Privacidade</a>
