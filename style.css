@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     background-color: #f0f2f5;
     margin: 0;
     display: flex;
@@ -12,8 +12,9 @@ body {
     padding: 15px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
 }
 .main-nav button {
     background: none;
@@ -22,20 +23,21 @@ body {
     font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
+    font-size: 0.8rem;
 }
 .container {
     background: white;
     width: 90%;
     max-width: 400px;
-    margin: 50px auto;
-    padding: 30px;
+    margin: 30px auto;
+    padding: 25px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     text-align: center;
 }
 .input-group { text-align: left; margin-bottom: 15px; }
-label { display: block; margin-bottom: 5px; color: #666; font-size: 0.9rem; }
-input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+label { display: block; margin-bottom: 5px; color: #666; font-size: 0.85rem; font-weight: bold; }
+input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
 .btn-main {
     width: 100%;
     padding: 15px;
@@ -46,7 +48,10 @@ input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radiu
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
+    font-size: 1rem;
 }
 .result-container { margin-top: 20px; font-size: 1.3rem; color: #28a745; font-weight: bold; }
 .affiliate-box { margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 10px; border: 1px solid #eee; }
 .ad-placeholder { margin-top: 20px; color: #bbb; font-size: 0.7rem; border: 1px dashed #ccc; padding: 20px; }
+footer { margin-top: 20px; }
+footer a { color: #aaa; text-decoration: none; font-size: 0.75rem; }
