@@ -1,109 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora de Idade Online Grátis (2026)</title>
-<meta name="description" content="Descubra sua idade exata em anos de forma rápida e gratuita.">
-
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  margin: 0;
-}
-
-.container {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  
-  /* RESPONSIVO */
-  max-width: 400px;
-  width: 90%;
-  
-  margin: 60px auto;
-  text-align: center;
-}
-
-nav {
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  margin: 0 6px;
-}
-
-h1 {
-  font-size: 22px;
-  margin-bottom: 20px;
-}
-
-input, button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-
-button {
-  background: #222;
-  color: white;
-  border: none;
-}
-
-button:active {
-  background: #444;
-}
-
-#res {
-  margin-top: 20px;
-  font-weight: bold;
-  font-size: 18px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Idade Pro</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="container">
+    <div class="language-selector">
+        <button onclick="setLanguage('pt')">PT</button>
+        <button onclick="setLanguage('en')">EN</button>
+        <button onclick="setLanguage('es')">ES</button>
+    </div>
 
-<nav>
-<a href="index.html">Idade</a> |
-<a href="dias-vida.html">Dias</a> |
-<a href="imc.html">IMC</a> |
-<a href="calorias.html">Calorias</a> |
-<a href="idade-biologica.html">Bio</a>
-</nav>
+    <div class="container">
+        <h1 id="txt-title">Calculadora de Idade</h1>
+        
+        <div class="input-group">
+            <label for="birthdate" id="txt-label">Data de Nascimento:</label>
+            <input type="date" id="birthdate">
+        </div>
 
-<h1>Calculadora de Idade</h1>
+        <button onclick="calculateAge()" id="txt-btn">Calcular Idade</button>
 
-<input type="date" id="data">
-<button onclick="calc()">Calcular</button>
+        <div id="result" class="result-container">
+            </div>
+    </div>
 
-<div id="res"></div>
-
-</div>
-
-<script>
-function calc(){
-let d=new Date(document.getElementById("data").value);
-let h=new Date();
-
-let idade=h.getFullYear()-d.getFullYear();
-let m=h.getMonth()-d.getMonth();
-
-if(m<0 || (m===0 && h.getDate()<d.getDate())) idade--;
-
-document.getElementById("res").innerText="Você tem "+idade+" anos";
-}
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
